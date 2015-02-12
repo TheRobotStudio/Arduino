@@ -20,7 +20,11 @@
 //  HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION 
 //  OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
 //  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//
+//  Modified by Cyril Jourdan (cyril.jourdan@therobotstudio.com) at The Robot Studio.
+/////////////////////////////////////////////////////////////////////////////
 
+/*** Includes ***/
 #include <Wire.h>
 #include "I2Cdev.h"
 #include "MPU9150Lib.h"
@@ -35,6 +39,7 @@
 //    0 = use the device at 0x68
 //    1 = use the device at ox69
 
+/*** Defines ***/
 #define DEVICE_TO_USE     0
 #define NB_SAMPLES_MEDIAN 5
 #define NB_ADC            6 //6
@@ -67,6 +72,7 @@ MPU9150Lib MPU;                                              // the MPU object
 
 #define  SERIAL_PORT_SPEED  115200  //115200
 
+/*** Variables ***/
 double acc_x = 0;
 double acc_y = 0;
 double acc_z = 0;
@@ -359,7 +365,7 @@ void shiftAllBuffers()
   shiftBuffer(buff_Az);    
 }
 
-//Setup Arduino program
+/*** Setup Arduino program ***/
 void setup()
 {
   Serial.begin(SERIAL_PORT_SPEED);
@@ -409,7 +415,7 @@ void setup()
   }   
 }
 
-//MAIN Function
+/*** MAIN Function ***/
 void loop()
 {  
   //Get ADC values
